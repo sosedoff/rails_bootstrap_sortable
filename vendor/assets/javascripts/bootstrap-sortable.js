@@ -63,6 +63,7 @@
             var $this = $(this);
 
             // Check if we should skip the element
+            if ($this.hasClass("skip-sort")) return;
             if (skipClass && $this.hasClass(skipClass)) return;
 
             var applyLast = (options.applyLast === true);

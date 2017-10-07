@@ -55,9 +55,16 @@
 
         emptyEnd = options.emptyEnd;
 
+        // Allow skipping sorting for specified classes
+        var skipClass = options.skipClass;
+
         // Set attributes needed for sorting
         $('table.sortable').each(function () {
             var $this = $(this);
+
+            // Check if we should skip the element
+            if (skipClass && $this.hasClass(skipClass)) return;
+
             var applyLast = (options.applyLast === true);
             $this.find('span.sign').remove();
 
